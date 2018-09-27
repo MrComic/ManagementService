@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementService.Web", "ManagementService.Web\ManagementService.Web.csproj", "{4AA078B6-A8A4-4453-A721-39FB37A39C82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementService.Data", "ManagementService.Data\ManagementService.Data.csproj", "{47C1872B-412E-4939-91EE-4CD91385444D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementService.Service", "ManagementService.Service\ManagementService.Service.csproj", "{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagementService.Model", "ManagementService.Model\ManagementService.Model.csproj", "{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagementService.UnitTest", "ManagementService.UnitTest\ManagementService.UnitTest.csproj", "{20BAA5A7-7C00-45A8-B285-2CBF37598812}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Debug|x86.Build.0 = Debug|Any CPU
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Release|x86.ActiveCfg = Release|Any CPU
+		{4AA078B6-A8A4-4453-A721-39FB37A39C82}.Release|x86.Build.0 = Release|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Debug|x86.Build.0 = Debug|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Release|x86.ActiveCfg = Release|Any CPU
+		{47C1872B-412E-4939-91EE-4CD91385444D}.Release|x86.Build.0 = Release|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Debug|x86.Build.0 = Debug|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Release|x86.ActiveCfg = Release|Any CPU
+		{033DD12F-F6B5-4CDF-AA9F-6201FF16870A}.Release|x86.Build.0 = Release|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Debug|x86.Build.0 = Debug|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Release|x86.ActiveCfg = Release|Any CPU
+		{ADAAB53E-FEF1-45B2-88F5-50756C2C0C38}.Release|x86.Build.0 = Release|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Debug|x86.Build.0 = Debug|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Release|x86.ActiveCfg = Release|Any CPU
+		{20BAA5A7-7C00-45A8-B285-2CBF37598812}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7551F380-B0A5-4184-98A6-B2EF90FAC3DC}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://myownorganization.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ManagementService.Web\\ManagementService.Web.csproj
+		SccProjectName1 = ManagementService.Web
+		SccLocalPath1 = ManagementService.Web
+		SccProjectUniqueName2 = ManagementService.Data\\ManagementService.Data.csproj
+		SccProjectName2 = ManagementService.Data
+		SccLocalPath2 = ManagementService.Data
+		SccProjectUniqueName3 = ManagementService.Service\\ManagementService.Service.csproj
+		SccProjectName3 = ManagementService.Service
+		SccLocalPath3 = ManagementService.Service
+		SccProjectUniqueName4 = ManagementService.Model\\ManagementService.Model.csproj
+		SccProjectName4 = ManagementService.Model
+		SccLocalPath4 = ManagementService.Model
+		SccProjectUniqueName5 = ManagementService.UnitTest\\ManagementService.UnitTest.csproj
+		SccProjectName5 = ManagementService.UnitTest
+		SccLocalPath5 = ManagementService.UnitTest
+	EndGlobalSection
+EndGlobal

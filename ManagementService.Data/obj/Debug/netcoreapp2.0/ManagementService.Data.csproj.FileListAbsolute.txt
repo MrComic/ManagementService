@@ -1,0 +1,14 @@
+F:\ManagementService\ManagementService.Data\bin\Debug\netcoreapp2.0\ManagementService.Data.deps.json
+F:\ManagementService\ManagementService.Data\bin\Debug\netcoreapp2.0\ManagementService.Data.runtimeconfig.json
+F:\ManagementService\ManagementService.Data\bin\Debug\netcoreapp2.0\ManagementService.Data.runtimeconfig.dev.json
+F:\ManagementService\ManagementService.Data\bin\Debug\netcoreapp2.0\ManagementService.Data.dll
+F:\ManagementService\ManagementService.Data\bin\Debug\netcoreapp2.0\ManagementService.Data.pdb
+F:\ManagementService\ManagementService.Data\bin\Debug\netcoreapp2.0\ManagementService.Model.dll
+F:\ManagementService\ManagementService.Data\bin\Debug\netcoreapp2.0\ManagementService.Model.pdb
+F:\ManagementService\ManagementService.Data\obj\Debug\netcoreapp2.0\ManagementService.Data.csproj.CoreCompileInputs.cache
+F:\ManagementService\ManagementService.Data\obj\Debug\netcoreapp2.0\ManagementService.Data.AssemblyInfoInputs.cache
+F:\ManagementService\ManagementService.Data\obj\Debug\netcoreapp2.0\ManagementService.Data.AssemblyInfo.cs
+F:\ManagementService\ManagementService.Data\obj\Debug\netcoreapp2.0\ManagementService.Data.dll
+F:\ManagementService\ManagementService.Data\obj\Debug\netcoreapp2.0\ManagementService.Data.pdb
+F:\ManagementService\ManagementService.Data\obj\Debug\netcoreapp2.0\ManagementService.Data.csprojAssemblyReference.cache
+F:\ManagementService\ManagementService.Data\obj\Debug\netcoreapp2.0\ManagementService.Data.csproj.CopyComplete

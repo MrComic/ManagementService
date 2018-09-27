@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="card-title __web-inspector-hide-shortcut__"> ویرایش پروفایل</h4>
+          <form class="m-t-20" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+            <input type="hidden" formControlName="UserId">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="Firstname">نام</label>
+                <input type="text" class="form-control" id="Firstname" formControlName="Firstname" placeholder="نام">
+
+              </div>
+              <div class="form-group col-md-3">
+                <label for="LastName">نام خانوادگی</label>
+                <input type="text" class="form-control" id="LastName" formControlName="LastName"  placeholder="نام خانوادگی">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="NationalCode">کد ملی</label>
+                <input type="text" class="form-control"  formControlName="NationalCode" id="NationalCode" placeholder="کد ملی">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="MobileNumber">شماره همراه</label>
+                <input type="text" class="form-control"  formControlName="MobileNumber" id="MobileNumber" placeholder="شماره همراه">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="PhoneNumber">تلفن </label>
+                <input type="text" class="form-control"  formControlName="PhoneNumber"id="PhoneNumber" placeholder="تلفن">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="Email">ایمیل</label>
+                <input type="email" class="form-control"   formControlName="Email" id="Email" placeholder="ایمیل">
+              </div>
+
+
+              <div class="form-group col-md-12">
+                <button class="btn btn-success waves-effect waves-light" type="submit">ویرایش
+                </button>
+                <button data-repeater-delete="" class="btn btn-danger waves-effect waves-light m-l-10" type="button">پاک کردن فرم
+                </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

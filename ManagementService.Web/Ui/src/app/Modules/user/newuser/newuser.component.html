@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <h4 class="card-title __web-inspector-hide-shortcut__"> ویرایش پروفایل</h4>
+
+          <form class="m-t-20" [formGroup]="form">
+            <div class="form-row">
+
+
+              <div class="form-group col-md-3">
+                <label for="name">نام کاربری</label>
+                <p>{{nationalCode.value}}</p>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="name">نام</label>
+                <input formControlName="Firstname" type="text" class="form-control" id="name" placeholder="نام">
+                <span class="text-muted" *ngIf="!form.get('Firstname').valid && form.get('Firstname').touched">نام را وارد نمایید</span>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="email">نام خانوادگی</label>
+                <input formControlName="LastName" type="email" class="form-control" id="family" placeholder="نام خانوادگی">
+                <span class="text-muted" *ngIf="!form.get('LastName').valid && form.get('LastName').touched">نام خانوادگی را وارد نمایید</span>
+              </div>
+              <div class="form-group col-md-3">
+                <label >کد ملی</label>
+                <input formControlName="NationalCode" (keydown)="0"  #nationalCode type="text" class="form-control" id="nationalcode" placeholder="کد ملی">
+                <span class="text-muted" *ngIf="!form.get('NationalCode').valid && form.get('NationalCode').touched">کد ملی صیحیح را وارد نمایید</span>
+                <br/>
+                <span class="text-muted" *ngIf="!form.get('NationalCode').valid && form.get('NationalCode').errors['minlength']">
+                 کد ملی باید 10 رقم باشد
+                </span>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="email">واحد سازمانی</label>
+                <ng-select [items]="orgs | async"
+                           bindLabel="Name"
+                           formControlName="OrgId"
+                           bindValue="Id" ></ng-select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="mobilenumber">شماره همراه</label>
+                <input formControlName="PhoneNumber" type="text" class="form-control" id="mobilenumber" placeholder="شماره همراه">
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="Password">رمز عبور</label>
+                <input formControlName="Password" type="password" class="form-control" id="password" placeholder="رمز عبور">
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="Rpassword"> تکرار رمز عبور</label>
+                <input formControlName="Rpassword" type="password" class="form-control" id="Rpassword" placeholder="رمز عبور">
+                <span class="text-muted" *ngIf="!form.get('NationalCode').valid && form.get('NationalCode').touched">تکرار رمز عبور صحیح نیست</span>
+                <span class="text-muted" *ngIf="!form.get('Rpassword').valid && form.get('Rpassword').errors['SamePassword']">
+                 رمز عبور با تکرار آن برابر نیست
+                </span>
+              </div>
+
+              <div class="form-group col-md-3">
+                <label for="email">ایمیل</label>
+                <input formControlName="Email" type="email" class="form-control" id="email" placeholder="ایمیل">
+              </div>
+
+              <div class="form-group col-md-12">
+                <button [disabled]="!form.valid" class="btn btn-success waves-effect waves-light" (click)="SubmitForm()"  type="submit">ویرایش
+                </button>
+                <button (click)="reset()" class="btn btn-danger waves-effect waves-light m-l-10" type="button">پاک کردن فرم
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

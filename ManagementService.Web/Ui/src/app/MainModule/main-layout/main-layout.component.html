@@ -1,0 +1,46 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="page-wrapper">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div *ngIf="bModel" class="col-5 align-self-center">
+          <h4 class="page-title">{{bModel.Title}}</h4>
+          <div class="d-flex align-items-center">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"
+                    *ngFor="let b of bModel.BreadCrumb;let i = index;"><a [routerLink]="b.route">{{b.title}}</a></li>
+              </ol>
+              <br/>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Container fluid  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- footer -->
+  <!-- ============================================================== -->
+  <footer class="footer text-center">
+    Copywrite
+  </footer>
+  <!-- ============================================================== -->
+  <!-- End footer -->
+  <!-- ============================================================== -->
+</div>

@@ -1,0 +1,27 @@
+<li class="sidebar-item" *ngFor="let m of getParent()">
+      <a [class]="HasChild(m.Id)? ['sidebar-link has-arrow waves-effect waves-dark'] :
+                                    ['sidebar-link waves-effect waves-dark']"
+          [routerLink]="HasChild(m.Id)?  null : [m.Route]"
+          aria-expanded="false">
+        <i [class]="m.MenuIconName"></i>
+        <span class="hide-menu">{{m.Name}}</span>
+      </a>
+
+      <ul *ngIf="HasChild(m.Id)"  aria-expanded="false" class="collapse first-level">
+        <li *ngFor="let fChildren of Getchilds(m.Id);let i = index" class="sidebar-item">
+          <a
+            [class]="HasChild(fChildren.Id)? ['has-arrow sidebar-link'] :
+                                ['sidebar-link']"
+            [routerLink]="HasChild(fChildren.Id)?  null : [fChildren.Route]   " routerLinkActive="active"  aria-expanded="false">
+            <i [class]="fChildren.MenuIconName"></i>
+          <span class="hide-menu">{{fChildren.Name}}</span></a>
+          <ul *ngIf="HasChild(fChildren.Id)" aria-expanded="false" class="collapse second-level">
+            <li *ngFor="let SChildren of Getchilds(fChildren.Id);let i = index" class="sidebar-item">
+              <a [routerLink]="[SChildren.Route]" routerLinkActive="active" class="sidebar-link">
+              <i [class]="SChildren.MenuIconName"></i><span class="hide-menu">{{SChildren.Name}}</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+</li>

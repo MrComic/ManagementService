@@ -1,0 +1,40 @@
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.deps.json
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.runtimeconfig.json
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.runtimeconfig.dev.json
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.dll
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.csprojResolveAssemblyReference.cache
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.csproj.CoreCompileInputs.cache
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.AssemblyInfoInputs.cache
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.AssemblyInfo.cs
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.pdb
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.dll
+C:\Users\Mohammad Reza\source\repos\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.pdb
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.dll
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.pdb
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.deps.json
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.runtimeconfig.json
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.runtimeconfig.dev.json
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.dll
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.pdb
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.csprojResolveAssemblyReference.cache
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.csproj.CoreCompileInputs.cache
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.AssemblyInfoInputs.cache
+C:\Users\farahani.m.IRANPL\Desktop\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.AssemblyInfo.cs
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.dll
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Data.dll
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Model.dll
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Service.dll
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.deps.json
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.runtimeconfig.json
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.runtimeconfig.dev.json
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Web.pdb
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Model.pdb
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Service.pdb
+F:\ManagementService\ManagementService.Web\bin\Debug\netcoreapp2.0\ManagementService.Data.pdb
+F:\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.csproj.CoreCompileInputs.cache
+F:\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.AssemblyInfoInputs.cache
+F:\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.AssemblyInfo.cs
+F:\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.dll
+F:\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.pdb
+F:\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.csprojAssemblyReference.cache
+F:\ManagementService\ManagementService.Web\obj\Debug\netcoreapp2.0\ManagementService.Web.csproj.CopyComplete

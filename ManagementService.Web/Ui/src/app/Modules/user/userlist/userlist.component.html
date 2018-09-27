@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+
+      <div class="card-header">
+
+        <div class="d-flex no-block align-items-center">
+          <h4 class="card-title">مدیریت کاربران</h4>
+          <div class="ml-auto">
+            <div class="btn-group">
+              <button class="btn btn-primary" (click)="AddUser()" >
+                <i class="fa fa-plus"></i> &nbsp;
+                <span>اضافه کردن کاربر</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-body">
+        <table datatable [dtOptions]="dtOptions" class="table table-striped"></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
