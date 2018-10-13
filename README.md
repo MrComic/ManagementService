@@ -13,8 +13,8 @@ here's the list of Tecnologies I'm using in this project:<br/>
 <b>AutoMapper - For Mapping Beetwin Two Model</b><br/>
 <b>Urf unit of work - this is an Implementation of Repository Pattern for EntityFramework</b><br/>
 <b>nlog-for loggin purpose (will be added in the next build) </b><br/>
-<b>Microsoft Sql Server - Database  </b></b>
-<b>Swagger for Documentation </b>
+<b>Microsoft Sql Server - Database  </b><br/>
+<b>Swagger for Documentation </b><br/>
 You Will Need Microsoft Visual Studio 2017 and .net Core 2.1 sdk to run this project 
 and for Angular Development you can use what ever Editor you like (I'm Using WebStorm) 
 After Cloning This project you will need to to run Npm install in ui folder of ManagementService.Web folder 
