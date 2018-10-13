@@ -1,0 +1,12 @@
+<table class="table table-striped table-bordered">
+  <thead>
+  <th>نام نقش</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <tr *ngFor='let role of UsersInRoles;'>
+    <td>{{role.RoleName}}</td>
+    <td><button class="btn btn-danger" (click)="DeleteUserFromRole(role.RoleId,role.UserId)">حذف</button></td>
+  </tr>
+  </tbody>
+</table>

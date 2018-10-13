@@ -1,8 +1,10 @@
 ﻿using DataTables.Queryable;
 using ManagementService.Model.DbSets.Menu;
+using ManagementService.Model.DbSets.Roles;
 using ManagementService.Model.DbSets.User;
 using ManagementService.Model.DbSets.User.ViewModels;
 using ManagementService.Model.ViewModel;
+using ManagementService.Model.ViewModel.UsersInRoles;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -27,5 +29,13 @@ namespace ManagementService.Service
         IPagedList<UserViewModel> GetUsers(DataTables.Queryable.DataTablesRequest<UserViewModel> request);
         Task<bool> IsDuplicateNationalCode(string nationalCode);
         Task<IdentityResult> NewUser(NewUserViewModel model);
+        Task<bool> UnlockUser(Guid userId);
+        Task<bool> EditProfile(Model.ViewModel.UserProfile.editprofileModel temp);
+        List<UsersInRoles> GetUserCompleteRoles(Guid userid);
+        List<Role> GetRoles1();
+        Task<IdentityResult> AddToRole(Guid userid,string RoleName);
+        Task<bool> IsInRole(Guid userid, string rolename);
+        IPagedList<RoleViewModel> GetRoles(DataTablesRequest<RoleViewModel> request);
+        Task<IdentityResult> RemoveUserFromRole(Guid userid, Guid roleid);
     }
 }

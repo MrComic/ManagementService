@@ -1,4 +1,4 @@
-import {Component, Host, OnInit} from '@angular/core';
+import {Component, forwardRef, Host, Inject, OnInit} from '@angular/core';
 import {MainLayoutComponent} from "../../../MainModule/main-layout/main-layout.component";
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -19,7 +19,7 @@ export class NewuserComponent implements OnInit {
 
   orgs: Observable<OrgModel[]>;
 
-  constructor(@Host() parent: MainLayoutComponent,
+  constructor( @Inject(forwardRef(() => MainLayoutComponent)) private parent:MainLayoutComponent,
               private router:Router,
               private orgServie:OrgService,
               private userService:UserServiceService
@@ -67,7 +67,9 @@ export class NewuserComponent implements OnInit {
   {
     if(this.form.valid)
     {
+      this.parent.showLoading();
       this.userService.NewUser((<NewUserModel>this.form.value)).subscribe(data=>{
+            this.parent.hideLoading();
             if(data.Success)
             {
               this.router.navigate(['users','list']);
@@ -77,6 +79,7 @@ export class NewuserComponent implements OnInit {
               alert(data.Message);
             }
       },(error:HttpErrorResponse)=>{
+        this.parent.hideLoading();
           alert('مشکلی در انجام عملیات وجود دارد');
       });
     }

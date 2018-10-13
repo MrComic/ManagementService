@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { MainLayoutComponent } from './MainModule/main-layout/main-layout.component';
 import { EmptyLayoutComponent } from './MainModule/empty-layout/empty-layout.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxLoadingModule} from "ngx-loading";
 
 @NgModule({
   declarations: [

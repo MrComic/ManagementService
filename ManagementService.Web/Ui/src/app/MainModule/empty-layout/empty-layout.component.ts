@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {InitJquery} from "../../SharedServices/InitJquery";
 
 @Component({
@@ -7,8 +7,24 @@ import {InitJquery} from "../../SharedServices/InitJquery";
   styleUrls: ['./empty-layout.component.css']
 })
 export class EmptyLayoutComponent implements OnInit,AfterViewInit {
+  IsLoading:boolean = false;
+  constructor(private cdRef : ChangeDetectorRef) {
 
-  constructor() { }
+  }
+
+  showLoading()
+  {
+    this.IsLoading = true;
+    $('input,button').attr('disabled','disabled');
+    this.cdRef.detectChanges();
+  }
+
+  hideLoading()
+  {
+    this.IsLoading = false;
+    $('input,button').removeAttr('disabled');
+    this.cdRef.detectChanges();
+  }
 
   ngOnInit() {
   }

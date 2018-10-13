@@ -1,0 +1,33 @@
+
+
+
+<app-add-user-to-role [UserId]="UserId" (UserAddedToRole)="UserAddedToRole($event)"></app-add-user-to-role>
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+
+      <div class="card-header">
+
+        <div class="d-flex no-block align-items-center">
+          <h4 class="card-title">مدیریت نقش کاربران</h4>
+
+        </div>
+
+      </div>
+      <div class="card-body">
+
+        <app-list [UsersInRoles]="userRoles" (DeleteRequest)="DeleteUserFromRole($event)"></app-list>
+
+
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -31,6 +31,8 @@ using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationM
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using ManagementService.Service;
 using Newtonsoft.Json.Serialization;
+using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
 
 namespace ManagementService.Web
 {
@@ -85,9 +87,17 @@ namespace ManagementService.Web
             services.AddMvc(options =>
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                options.Filters.Add(new DisableRequestSizeLimitAttribute());
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
-
+            var filePath = Path.Combine(System.AppContext.BaseDirectory, "ManagementService.Web.xml");
+            services.AddSwaggerGen(c =>
+            {
+                c.MapType<Guid>(() => new Schema { Type = "string", Format = "uuid" });
+                c.IncludeXmlComments(filePath);
+                c.EnableAnnotations();
+                c.SwaggerDoc("v1", new Info { Title = "مستندات پروژه", Version = "v1" });
+            });
 
 
             var builder = new ContainerBuilder();
@@ -116,7 +126,7 @@ namespace ManagementService.Web
             //app.UseHttpsRedirection();
 
             app.UseAuthentication();
-            app.UseMvc(); 
+            app.UseMvc();
 
 
             //app.UseExceptionHandler(appBuilder =>
@@ -152,7 +162,7 @@ namespace ManagementService.Web
             //});
 
             // app.UseAntiforgeryTokens();
-         
+
 
             //app.Use(next => context =>
             //{
@@ -165,7 +175,7 @@ namespace ManagementService.Web
             //string.Equals(path, "/", StringComparison.OrdinalIgnoreCase) ||
             //string.Equals(path, "/index.html", StringComparison.OrdinalIgnoreCase))
             //    {
-          
+
 
             //    //    antiForgeryCookieService.DeleteAntiForgeryCookies();
             //            var tokens = antiforgery.GetAndStoreTokens(context);
@@ -179,7 +189,13 @@ namespace ManagementService.Web
 
             //});
 
-
+            app.UseSwagger();
+            
+            app.UseSwaggerUI(c =>
+            {
+                c.EnableFilter();
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "نسخه 1");
+            });
 
 
             app.UseSpa(spa =>

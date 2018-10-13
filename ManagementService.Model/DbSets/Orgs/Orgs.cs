@@ -17,5 +17,6 @@ namespace ManagementService.Model.DbSets.Orgs
         public TrackingState TrackingState { get; set; }
         [NotMapped]
         public ICollection<string> ModifiedProperties { get; set; }
+        public virtual List<User.User> Users { get; set; }
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ManagementService.Web</name>
+    </assembly>
+    <members>
+        <member name="M:ManagementService.Web.Controllers.BaseController.JsonDataTable``1(DataTables.Queryable.IPagedList{``0},System.Int32)">
+            <summary>
+            Helper method that converts <see cref="T:DataTables.Queryable.IPagedList`1"/> collection to the JSON-serialized object in datatables-friendly format.
+            </summary>
+            <param name="model"><see cref="T:DataTables.Queryable.IPagedList`1"/> collection of items</param>
+            <param name="draw">Draw counter (optional).</param>
+            <returns>JsonNetResult instance to be sent to datatables</returns>
+        </member>
+        <member name="M:ManagementService.Web.Controllers.userController.UnlockUser(System.Guid)">
+            <summary>
+             باز کردن قفل کاربر پس از اشتباه زدن چند بار رمز عبور
+            </summary>
+            <param name="userid">شناسه کاربری</param>
+            <returns>HttpResult</returns>
+        </member>
+    </members>
+</doc>

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,6 +21,7 @@ namespace ManagementService.Web.Controllers
     [AutoValidateAntiforgeryToken]
     public class ApiSettingsController : Controller
     {
+        private readonly ILogger<ApiSettingsController> _logger;
         private readonly IOptionsSnapshot<ApiSettings> _apiSettingsConfig;
         IUserService userService { get; set; }
         private IAntiforgery antiforgery { get; set; }
@@ -27,9 +29,12 @@ namespace ManagementService.Web.Controllers
         private readonly IAntiForgeryCookieService _antiforgery;
         private readonly ITokenStoreService _tokenService;
         private readonly IOrgService _orgservice;
-        public ApiSettingsController(IOptionsSnapshot<ApiSettings> apiSettingsConfig, IUserService userService, IAntiForgeryCookieService antiforgery, ITokenStoreService tokenService,
+        public ApiSettingsController(
+         //   ILogger<ApiSettingsController> logger,
+            IOptionsSnapshot<ApiSettings> apiSettingsConfig, IUserService userService, IAntiForgeryCookieService antiforgery, ITokenStoreService tokenService,
             IAntiforgery antiforgeryService)
         {
+           // _logger = logger;
             this.userService = userService;
             _apiSettingsConfig = apiSettingsConfig;
 
@@ -42,7 +47,9 @@ namespace ManagementService.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Get(string t="")
         {
-           // await userService.RegisterTestUser();
+          // _logger.LogError("Error Log");
+           // throw new Exception("error");
+            // await userService.RegisterTestUser();
             string xsrfToken = "";
             string accessToken = "";
             if (User.Identity.IsAuthenticated)

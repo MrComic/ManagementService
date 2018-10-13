@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {InitJquery} from "../../SharedServices/InitJquery";
 import {BreadCrumbModel} from '../../core/Models/BreadCrumbModel';
 
@@ -11,8 +11,23 @@ import {BreadCrumbModel} from '../../core/Models/BreadCrumbModel';
 export class MainLayoutComponent implements OnInit,AfterViewInit{
   bModel:BreadCrumbModel =new BreadCrumbModel();
 
-  constructor() {
+  IsLoading:boolean = false;
+  constructor(private cdRef : ChangeDetectorRef) {
 
+  }
+
+  showLoading()
+  {
+    this.IsLoading = true;
+    $('input,button').attr('disabled','disabled');
+    this.cdRef.detectChanges();
+  }
+
+  hideLoading()
+  {
+    this.IsLoading = false;
+    $('input,button').removeAttr('disabled');
+    this.cdRef.detectChanges();
   }
 
   TitleChanged( bModel:BreadCrumbModel ){
@@ -24,6 +39,7 @@ export class MainLayoutComponent implements OnInit,AfterViewInit{
   }
 
   ngOnInit() {
+
     // this.bModel = this.breadcrumbService.bmodel;
     // this.breadcrumbService.TitleChanged.subscribe((data)=>{
     //     this.bModel = data;

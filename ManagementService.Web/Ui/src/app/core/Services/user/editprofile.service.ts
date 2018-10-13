@@ -20,20 +20,21 @@ export class EditprofileService {
 
   editprofile(editprofile:AuthUser ): Observable<HttpResult> {
 
-    const headers = new HttpHeaders({ "Content-Type": "application/json",body:JSON.stringify(editprofile) });
+    const headers = new HttpHeaders({ "Content-Type": "application/json"});
     return this.http.post<HttpResult>(this.editprofileUrl,editprofile,{ headers: headers} ).pipe(
       map((response: HttpResult) => {
-        if(response && response.Success) {
-          if (response && response.Data.Access_token) {
-            this.auths.authUser = response.Data
-            return response.Data;
+        console.log(response);
+        if(response.Success) {
 
-          }
+            this.auths.authUser = response.Data;
+            return <HttpResult>response;
+
+
         }
         else
         {
           alert(response.Message)
-          return {};
+          return ;
         }
       }),
       catchError((error: HttpErrorResponse) => throwError(error))

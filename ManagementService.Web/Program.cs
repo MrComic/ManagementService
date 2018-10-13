@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using NLog.Web;
 
 namespace ManagementService.Web
 {
@@ -19,9 +20,15 @@ namespace ManagementService.Web
 
         public static IWebHost BuildWebHost(string[] args)
         {
-                return WebHost.CreateDefaultBuilder(args).UseKestrel()
-                    .UseStartup<Startup>()
-                    .Build();
+            return WebHost.CreateDefaultBuilder(args).UseKestrel(o => { o.Limits.MaxRequestBodySize = null; })
+                .UseStartup<Startup>()
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                })
+                .UseNLog()  
+                .Build();
         }
     }
 }

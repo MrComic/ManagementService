@@ -1,0 +1,23 @@
+
+
+<div class="card card col-md-12">
+  <div class="card-body col-md-12">
+    <h4 class="card-title">ایجاد و ویرایش نقش</h4>
+      <input #roleid type="hidden" value={{Role.RoleId}} >
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button  class="btn btn-danger" type="button" (click)="EditRole(Name.value,roleid.value)">ویرایش نقش</button>
+        </div>
+        <input type="text" #Name value={{Role.Name}}   class="form-control" placeholder="نام نقش خود را وارد نمایید" aria-label="" aria-describedby="basic-addon1">
+        <div class="input-group-append">
+          <button [disabled]='!Name.value' class="btn btn-info" type="button" (click)="AddRole(Name.value)"> ایجاد نقش</button>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+

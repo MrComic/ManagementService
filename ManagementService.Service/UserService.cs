@@ -2,8 +2,11 @@
 using ManagementService.Model.DbSets.Menu;
 using ManagementService.Model.DbSets.Roles;
 using ManagementService.Model.DbSets.User;
+using ManagementService.Model.Exceptions;
 using ManagementService.Model.ViewModel;
+using ManagementService.Model.ViewModel.UsersInRoles;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +23,7 @@ namespace ManagementService.Service
         private RoleManager<Role> roleManager { get; set; }
         private UserManager<User> userManager { get; set; }
         private Data.IRepositoryX<UsersInRole> _usersInRolesRepo { get; set; }
+        private Data.IRepositoryX<Role> Roles { get; set; }
         private Data.IRepositoryX<MenuAccess> _menuaccessRepo { get; set; }
         private Data.IRepositoryX<Menu> _menuRepo { get; set; }
         private IUnitOfWorkDatabaseContext unit { get; set; }
@@ -27,11 +31,14 @@ namespace ManagementService.Service
             Data.IRepositoryX<UsersInRole> RoleRepository,
                 Data.IRepositoryX<MenuAccess> _menuaccessRepo,
                 Data.IRepositoryX<Menu> menuRepo,
+                Data.IRepositoryX<Role> _Roles,
              RoleManager<Role> roleManager,
             IUnitOfWorkDatabaseContext unit, SignInManager<User> signInManager, UserManager<User> userManager) : base(repository)
         {
             this.unit = unit;
             _menuRepo = menuRepo;
+
+            Roles = _Roles;
             this._menuaccessRepo = _menuaccessRepo;
             _usersInRolesRepo = RoleRepository;
             this.roleManager = roleManager;
@@ -123,17 +130,26 @@ namespace ManagementService.Service
 
         public IPagedList<UserViewModel> GetUsers(DataTablesRequest<UserViewModel> request)
         {
-            return Repository.Queryable().Select(p => new UserViewModel()
+            return Repository.Queryable().Include(p=>p.Org).Select(p => new UserViewModel()
             {
                 Email = p.Email,
                 FirstName = p.Firstname,
                 ImageLink = p.ImageLink,
                 LastName = p.LastName,
                 OrgId = p.OrgId,
-                OrgName = "",
+                OrgName = p.Org.Name,
                 UserId = p.Id,
                 UserName = p.UserName
             }).ToPagedList(request);
+        }
+        public IPagedList<RoleViewModel> GetRoles(DataTablesRequest<RoleViewModel> request)
+        {
+            return Roles.Queryable().Select(p => new RoleViewModel()
+            {
+                Name = p.Name,
+               RoleId=Convert.ToString(p.Id)
+            }).ToPagedList(request);
+
         }
 
         public Task<bool> IsDuplicateNationalCode(string nationalCode)
@@ -158,6 +174,101 @@ namespace ManagementService.Service
                 OrgId = model.OrgId,
                 PhoneNumber = model.PhoneNumber,
             }, model.Password);
+        }
+
+        public async Task<bool> UnlockUser(Guid userId)
+        {
+            var user =  this.userManager.Users.Where(p=>p.Id == userId).FirstOrDefault();
+            if (user == null)
+            {
+                throw new Exception("UserNotFound");
+            }
+            else
+            {
+                IdentityResult Res1= await userManager.SetLockoutEndDateAsync(user, DateTime.Now.AddMinutes(-1));
+                IdentityResult Res2= await this.userManager.ResetAccessFailedCountAsync(user);
+                if (Res1.Succeeded && Res2.Succeeded)
+                {
+                    return true;
+                }
+                else
+                {
+                    throw new Exception(String.Join(",",Res1.Errors) + " " + String.Join(",", Res2.Errors));
+                }
+            }
+        }
+        public async Task<bool> EditProfile(Model.ViewModel.UserProfile.editprofileModel temp)
+        {
+            try { 
+            var user = userManager.Users.Where(s => s.Id == new Guid(temp.UserId)).FirstOrDefault();
+            if (user.UserName.Length > 0)
+            {
+                user.Firstname = temp.Firstname;
+                user.LastName = temp.LastName;
+                user.NationalCode = temp.NationalCode;
+                user.PhoneNumber = temp.PhoneNumber;
+                user.Email = temp.Email;
+                user.MobileNumber = temp.MobileNumber;
+                await userManager.UpdateAsync(user);
+                return true;
+            }
+            else { return false; }
+            }
+            catch(Exception e)
+            {
+                
+                return false;
+            }
+        }
+
+        public List<UsersInRoles> GetUserCompleteRoles(Guid userid)
+        {
+            return this._usersInRolesRepo.Queryable().Where(p => p.UserId == userid).Include(p => p.Role)
+                .Select(p => new UsersInRoles() {
+                    UserId = p.UserId,
+                    RoleId = p.RoleId,
+                    RoleName = p.Role.Name
+                }).ToList(); 
+        }
+
+        public List<Role> GetRoles1()
+        {
+            return this.roleManager.Roles.ToList();
+        }
+
+        public  Task<IdentityResult> AddToRole(Guid userid, string RoleName)
+        {
+            var user = userManager.Users.Where(s => s.Id == userid).FirstOrDefault();
+            if (user == null)
+            {
+                throw new UserNotFoundException();
+            }
+            return  this.userManager.AddToRoleAsync(user, RoleName);
+        }
+
+        public Task<bool> IsInRole(Guid userid, string rolename)
+        {
+            var user = userManager.Users.Where(s => s.Id == userid).FirstOrDefault();
+            if (user == null)
+            {
+                throw new UserNotFoundException();
+            }
+            return this.userManager.IsInRoleAsync(user, rolename);
+        }
+
+        public  Task<IdentityResult> RemoveUserFromRole(Guid userid, Guid roleid)
+        {
+            var user = userManager.Users.Where(s => s.Id == userid).FirstOrDefault();
+            var role = roleManager.Roles.Where(s => s.Id == roleid).FirstOrDefault();
+            if (user == null)
+            {
+                throw new  UserNotFoundException();
+            }
+            if (role == null)
+            {
+                throw new RoleNotFoundException();
+            }
+            return userManager.RemoveFromRoleAsync(user, role.Name);
         }
     }
 }

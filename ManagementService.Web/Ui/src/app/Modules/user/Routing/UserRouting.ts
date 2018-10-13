@@ -10,7 +10,8 @@ import {CommonModule} from '@angular/common';
 
 const routes:Routes  = [
   {path:'list',component:userlistComponent},
-  {path:'newuser',component:NewuserComponent}
+  {path:'newuser',component:NewuserComponent},
+  {path:'usersinroles',  loadChildren:'../SubModules/users-in-roles/users-in-roles.module#UsersInRolesModule',}
 ]
 
 @NgModule({

@@ -10,27 +10,29 @@
               <div class="form-group col-md-3">
                 <label for="Firstname">نام</label>
                 <input type="text" class="form-control" id="Firstname" formControlName="Firstname" placeholder="نام">
-
+                <span class="text-muted" *ngIf="!form.get('Firstname').valid && form.get('Firstname').touched">نام را وارد نمایید</span>
               </div>
               <div class="form-group col-md-3">
                 <label for="LastName">نام خانوادگی</label>
                 <input type="text" class="form-control" id="LastName" formControlName="LastName"  placeholder="نام خانوادگی">
+                <span class="text-muted" *ngIf="!form.get('LastName').valid && form.get('LastName').touched">نام خانوادگی را وارد نمایید</span>
               </div>
-              <div class="form-group col-md-3">
-                <label for="NationalCode">کد ملی</label>
-                <input type="text" class="form-control"  formControlName="NationalCode" id="NationalCode" placeholder="کد ملی">
-              </div>
+
               <div class="form-group col-md-3">
                 <label for="MobileNumber">شماره همراه</label>
                 <input type="text" class="form-control"  formControlName="MobileNumber" id="MobileNumber" placeholder="شماره همراه">
+                <span class="text-muted" *ngIf="!form.get('MobileNumber').valid && form.get('MobileNumber').touched">شماره همراه را وارد نمایید</span>
+                <span class="text-muted" *ngIf="!form.get('MobileNumber').valid && form.get('MobileNumber').errors['minlength']">تعداد رقم شماره همراه 11 است</span>
               </div>
               <div class="form-group col-md-3">
                 <label for="PhoneNumber">تلفن </label>
                 <input type="text" class="form-control"  formControlName="PhoneNumber"id="PhoneNumber" placeholder="تلفن">
+                <span class="text-muted" *ngIf="!form.get('PhoneNumber').valid && form.get('PhoneNumber').touched">تلفن را وارد نمایید</span>
               </div>
               <div class="form-group col-md-3">
                 <label for="Email">ایمیل</label>
                 <input type="email" class="form-control"   formControlName="Email" id="Email" placeholder="ایمیل">
+                <span class="text-muted" *ngIf="!form.get('Email').valid && form.get('Email').touched">ایمیل را وارد نمایید</span>
               </div>
 
 

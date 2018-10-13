@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, forwardRef, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../core/Services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
+import {MainLayoutComponent} from "../../main-layout/main-layout.component";
+import {EmptyLayoutComponent} from "../../empty-layout/empty-layout.component";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,9 @@ export class LoginComponent implements OnInit {
 
   error = "";
   returnUrl = "";
-  constructor(private authService:AuthService, private router: Router,
+  constructor(
+    @Inject(forwardRef(() => EmptyLayoutComponent)) private parent:EmptyLayoutComponent,
+    private authService:AuthService, private router: Router,
               private route: ActivatedRoute) {
     // reset the login status
     //this.authService.logout(false);
@@ -35,9 +39,11 @@ export class LoginComponent implements OnInit {
   Login():void{
     //return;
     if(this.form.valid) {
+this.parent.showLoading();
       this.error = "";
       this.authService.login(this.form.value)
         .subscribe(isLoggedIn => {
+            this.parent.hideLoading();
             if (isLoggedIn) {
               if (this.returnUrl) {
                 this.router.navigate([this.returnUrl]);
@@ -47,7 +53,7 @@ export class LoginComponent implements OnInit {
             }
           },
           (error: HttpErrorResponse) => {
-            console.error("Login error", error);
+            this.parent.hideLoading();
             if (error.status === 401) {
               this.error = "Invalid User name or Password. Please try again.";
             } else {

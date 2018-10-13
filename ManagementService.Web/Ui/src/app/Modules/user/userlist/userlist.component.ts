@@ -1,6 +1,8 @@
-import {AfterViewChecked, AfterViewInit, Component, Host, OnInit, Renderer} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, forwardRef, Host, Inject, OnInit, Renderer} from '@angular/core';
 import {MainLayoutComponent} from "../../../MainModule/main-layout/main-layout.component";
-import {Router} from "@angular/router";
+import {Params, Router} from "@angular/router";
+import {UserServiceService} from '../Services/user-service.service';
+import {HttpResult} from '../../../core/Models/http-result';
 
 @Component({
   selector: 'user-userlist',
@@ -9,14 +11,14 @@ import {Router} from "@angular/router";
 })
 export class userlistComponent implements OnInit,AfterViewInit {
 
-  //dtTrigger: Subject = new Subject();
   dtOptions: DataTables.Settings = {};
 
   ngAfterViewInit(){
 
   }
 
-  constructor(@Host() parent: MainLayoutComponent,private router:Router) {
+  constructor(@Inject(forwardRef(() => MainLayoutComponent)) private parent:MainLayoutComponent
+              ,private router:Router,private usermanager:UserServiceService) {
       parent.TitleChanged({ Title:'مدیریت کاربران' ,
         BreadCrumb:[
           { route : "" , title: "خانه" },
@@ -30,10 +32,26 @@ export class userlistComponent implements OnInit,AfterViewInit {
     this.router.navigate(['users/newuser'])
   }
 
-
+  UnlockUser(data:any){
+    this.parent.showLoading();
+    this.usermanager.UnlockUser(data.UserId).subscribe((data:HttpResult)=>{
+      this.parent.hideLoading();
+      if(data.Success)
+      {
+        alert('با موفقیت انجام شد')
+      }
+      else
+      {
+        alert(data.Message);
+      }
+    },(error)=>{
+      this.parent.hideLoading();
+      alert('مشکلی در انجام عملیات جاری وجود دارد');
+    });
+  }
 
   ManageRoles(data:any){
-       console.log(data.UserId )
+    this.router.navigate(['users','usersinroles', 'list',data.UserId ] );
   }
 
   ngOnInit(): void {
@@ -42,8 +60,9 @@ export class userlistComponent implements OnInit,AfterViewInit {
 
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2,
+      pageLength: 10,
       serverSide: true,
+      searchDelay: 2000,
       processing: true,
       language: {
         "url": "/assets/DataTablesPersian.json"
@@ -63,7 +82,7 @@ export class userlistComponent implements OnInit,AfterViewInit {
           data: 'Email'
         }, {
         title: 'نام سازمان',
-        data: 'OrgId'
+        data: 'OrgName'
       },{
         data:'btn',
         searchable:false,
@@ -72,7 +91,14 @@ export class userlistComponent implements OnInit,AfterViewInit {
         render: function (data: any, type: any, full: any) {
           console.log(data);
           return`
-              <button class="btn btn-default" data-command-RoleManagement="" >مدیریت سطح دسترسی</button>
+              <button class="btn btn-primary" data-command-RoleManagement="" >
+                <i class="fa fa-shield-alt"></i>
+                مدیریت سطح دسترسی
+              </button>
+              <button class="btn btn-success" data-command-Unlock="" >
+                <i class="fa fa-unlock"></i>
+                فعال سازی
+              </button>
           `;
         }
       }],
@@ -82,6 +108,11 @@ export class userlistComponent implements OnInit,AfterViewInit {
         $('[data-command-RoleManagement]', row).off().on('click', () => {
           self.ManageRoles(data);
         });
+
+        $('[data-command-Unlock]', row).off().on('click', () => {
+          self.UnlockUser(data);
+        });
+
         return row;
       }
 

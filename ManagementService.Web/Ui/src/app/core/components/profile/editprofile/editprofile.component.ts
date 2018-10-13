@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {HttpErrorResponse} from "@angular/common/http";
 import {MainLayoutComponent} from "../../../../MainModule/main-layout/main-layout.component";
 import {AuthUser} from "../../../Models/auth-user";
+import {HttpResult} from "../../../Models/http-result";
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
@@ -16,13 +17,13 @@ export class EditprofileComponent implements OnInit {
   userid:string="";
 
   form:FormGroup=new FormGroup({
-    'UserId':new FormControl(null),
-    'Firstname':new FormControl(null,[Validators.required]),
-    'LastName':new FormControl(null,[Validators.required]),
-    'NationalCode':new FormControl(null,[Validators.required]),
-    'MobileNumber':new FormControl(null,[Validators.required]),
-    'PhoneNumber':new FormControl(null,[Validators.required]),
-    'Email':new FormControl(null,[Validators.required])
+    'UserId':new FormControl(""),
+    'Firstname':new FormControl("",[Validators.required]),
+    'LastName':new FormControl("",[Validators.required]),
+    'NationalCode':new FormControl("",[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
+    'MobileNumber':new FormControl("",[Validators.required,Validators.minLength(11),Validators.maxLength(11)]),
+    'PhoneNumber':new FormControl("",[Validators.required]),
+    'Email':new FormControl("",[Validators.required])
 
   });
 
@@ -31,7 +32,7 @@ export class EditprofileComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log();
+
     this.editprofileservice.GetUserId(this.r.snapshot.params.userid).subscribe(getuser=>{
       this.form.setValue(getuser);
     })
@@ -42,16 +43,19 @@ export class EditprofileComponent implements OnInit {
 
       if(this.form.valid)
       {
+
         var tempuser=(<AuthUser>this.form.value);
 
-        tempuser.UserId = this.r.snapshot.params.userid;
 
-        this.error = "";
+
         this.editprofileservice.editprofile(tempuser)
           .subscribe(editprofile=>{
+
+
+
           if(editprofile.Success)
           {
-
+            alert(editprofile.Message);
             this.router.navigate(['profile']);
           }
           else {
@@ -61,11 +65,12 @@ export class EditprofileComponent implements OnInit {
 
 
         },(error: HttpErrorResponse) => {
-          console.error("Login error", error);
+
           if (error.status === 500) {
            alert("مشکل در انجام عملیات")
           } else {
             this.error = `${error.statusText}: ${error.message}`;
+            console.log(this.error);
           }
           });
       }

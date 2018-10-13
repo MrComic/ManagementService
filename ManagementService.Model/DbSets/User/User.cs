@@ -27,5 +27,11 @@ namespace ManagementService.Model.DbSets.User
         public string NationalCode { get; set; }
 
         public long OrgId { get; set; }
+
+        public virtual Orgs.Orgs Org { get; set; }
+
+        public virtual List<UsersInRole> UserRoles { get; set; }
+
+        public string MobileNumber { get; set; }
     }
 }

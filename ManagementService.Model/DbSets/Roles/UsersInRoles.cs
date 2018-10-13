@@ -17,6 +17,9 @@ namespace ManagementService.Model.DbSets.Roles
         public Guid EntityIdentifier { get; set; }
 
         public long OrgId { get; set; }
+
+        public User.User User { get; set; }
+        public Role Role { get; set; }
         
     }
 

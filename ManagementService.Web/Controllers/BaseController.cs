@@ -16,6 +16,7 @@ namespace ManagementService.Web.Controllers
         /// <param name="model"><see cref="IPagedList{T}"/> collection of items</param>
         /// <param name="draw">Draw counter (optional).</param>
         /// <returns>JsonNetResult instance to be sent to datatables</returns>
+        [NonAction]
         protected JsonResult JsonDataTable<T>(IPagedList<T> model, int draw = 0)
         {
             JsonResult jsonResult = new JsonResult(new

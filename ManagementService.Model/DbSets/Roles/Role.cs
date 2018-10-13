@@ -18,5 +18,7 @@ namespace ManagementService.Model.DbSets.Roles
         [NotMapped]
         public Guid EntityIdentifier { get; set; }
 
+        public List<UsersInRole> UsedRoles { get; set; }
+
     }
 }

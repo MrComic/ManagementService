@@ -32,18 +32,18 @@ namespace ManagementService.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                /*Home*/ optionsBuilder.UseSqlServer(@"Server=.;Database=ManagementService;Persist Security Info=True;User ID=sa;Password=Password@14282038;MultipleActiveResultSets=True");
+                /*Home*/ //optionsBuilder.UseSqlServer(@"Server=.;Database=ManagementService;Persist Security Info=True;User ID=sa;Password=Password@14282038;MultipleActiveResultSets=True");
 
                 /*Mohammad*/
-               // optionsBuilder.UseSqlServer(@"Server=.;Database=ManagementService;Trusted_Connection=True;MultipleActiveResultSets=true");
+              //optionsBuilder.UseSqlServer(@"Server=.;Database=ManagementService;Trusted_Connection=True;MultipleActiveResultSets=true");
 
-                /*work*/  //optionsBuilder.UseSqlServer(@"Server=.;Database=ManagementService;Persist Security Info=True;User ID=sa;Password=Prg@14282038;MultipleActiveResultSets=True");
+                /*work*/
+                optionsBuilder.UseSqlServer(@"Server=.;Database=ManagementService;Persist Security Info=True;User ID=sa;Password=Prg@14282038;MultipleActiveResultSets=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
             
             builder.Entity<User>(b =>
             {
@@ -59,7 +59,7 @@ namespace ManagementService.Data
                 b.Property(u => u.NormalizedUserName).HasMaxLength(256);
                 b.Property(u => u.Email).HasMaxLength(256);
                 b.Property(u => u.NormalizedEmail).HasMaxLength(256);
-
+                b.HasOne(p => p.Org).WithMany(p => p.Users).HasForeignKey(p => p.OrgId).OnDelete(DeleteBehavior.Restrict);
                 b.ToTable("Users");
             });
             builder.Ignore<IdentityUserClaim<Guid>>();
@@ -118,6 +118,9 @@ namespace ManagementService.Data
                 b.HasKey(r => new { r.UserId, r.RoleId });
                 
                 b.ToTable("UsersInRoles");
+
+                b.HasOne(p => p.User).WithMany(p => p.UserRoles).HasForeignKey(p => p.UserId);
+                b.HasOne(p => p.Role).WithMany(p => p.UsedRoles).HasForeignKey(p => p.RoleId);
             });
             builder.Entity<Orgs>().ToTable("Orgs");
             builder.Entity<MenuAccess>().ToTable("MenuAccess").HasKey(p => new { p.MenuId, p.RoleId });

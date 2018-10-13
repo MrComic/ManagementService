@@ -20,6 +20,12 @@ const routes:Routes  = [
     canActivate:[AuthGuardService]
   },
   {
+    path:'role',
+    component:MainLayoutComponent,
+    loadChildren:'../Modules/role/role.module#RoleModule',
+    canActivate:[AuthGuardService]
+  },
+  {
     path:'auth',
     component:EmptyLayoutComponent,
     children:[

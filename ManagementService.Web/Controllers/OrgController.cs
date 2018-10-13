@@ -21,6 +21,7 @@ namespace ManagementService.Web.Controllers
             this.environment = environment;
         }
 
+        [HttpGet]
         public List<OrgsViewModel> Get()
         {
             return _orgService.GetLibOrgs(1);

@@ -23,6 +23,7 @@ namespace ManagementService.Model.ViewModel
         public string Email { get; set; }
         [Required]
         public long OrgId { get; set; }
+        public string MobileNumber { get; set; }
     }
     public class UserViewModel
     {
@@ -36,7 +37,7 @@ namespace ManagementService.Model.ViewModel
         public long OrgId { get; set; }
 
         public string NationalCode { get; set; }
-
+        public string MobileNumber { get; set; }
         public string FullName
         {
             get { return FirstName + " " + LastName; }
@@ -60,5 +61,14 @@ namespace ManagementService.Model.ViewModel
         public string Email { get; set; }
 
 
+    }
+
+    public class RoleViewModel
+    {
+        public string RoleId { get; set; }
+        public string Name { get; set; }
+
+        [IgnoreDataMember]
+        public string btn { get; set; }
     }
 }

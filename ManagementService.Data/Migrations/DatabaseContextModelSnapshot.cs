@@ -153,6 +153,8 @@ namespace ManagementService.Data.Migrations
 
                     b.HasKey("UserId", "RoleId");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("UsersInRoles");
                 });
 
@@ -196,6 +198,8 @@ namespace ManagementService.Data.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
+                    b.Property<string>("MobileNumber");
+
                     b.Property<string>("NationalCode");
 
                     b.Property<string>("NormalizedEmail")
@@ -229,6 +233,8 @@ namespace ManagementService.Data.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("OrgId");
+
                     b.ToTable("Users");
                 });
 
@@ -243,6 +249,27 @@ namespace ManagementService.Data.Migrations
                         .WithMany("MenuAccesses")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ManagementService.Model.DbSets.Roles.UsersInRole", b =>
+                {
+                    b.HasOne("ManagementService.Model.DbSets.Roles.Role", "Role")
+                        .WithMany("UsedRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ManagementService.Model.DbSets.User.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ManagementService.Model.DbSets.User.User", b =>
+                {
+                    b.HasOne("ManagementService.Model.DbSets.Orgs.Orgs", "Org")
+                        .WithMany("Users")
+                        .HasForeignKey("OrgId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

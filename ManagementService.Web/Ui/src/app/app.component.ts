@@ -16,10 +16,14 @@ import {AuthService} from './core/Services/auth.service';
 export class AppComponent implements OnInit,AfterViewInit{
 
 
-  constructor(private authService:AuthService,
+  constructor(
+    private authService:AuthService,
               private route:ActivatedRoute,private router: Router){
     InitJquery();
+
   }
+
+
 
   ngAfterViewInit(){
 

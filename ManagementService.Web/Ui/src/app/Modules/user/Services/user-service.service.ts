@@ -11,6 +11,10 @@ export class UserServiceService {
 
   }
 
+  UnlockUser(userId:string):Observable<HttpResult>{
+    return this.http.post<HttpResult>('/api/user/UnlockUser',  JSON.stringify( userId),{ headers:new HttpHeaders({ 'Content-type':'application/json' })} );
+  }
+
   NewUser(user:NewUserModel):Observable<HttpResult>
   {
     return this.http.post<HttpResult>('/api/user/NewUser',user,{ headers:new HttpHeaders({ 'Content-type':'application/json' }) });

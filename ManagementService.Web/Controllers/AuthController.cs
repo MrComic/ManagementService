@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-
+using ManagementService.Model.DbSets.Roles;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Http;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -28,19 +28,21 @@ namespace ManagementService.Web.Controllers
         private IUserService _userService { get; set; }
         private readonly IConfiguration _configuration;
         private IAntiforgery antiforgery { get; set; }
+        private RoleManager<Role> roleManager { get; set; }
 
         private readonly IAntiForgeryCookieService _antiforgery;
         private readonly ITokenStoreService _tokenService;
-        public AuthController(IUserService userService, IConfiguration configuration, IAntiForgeryCookieService antiforgery,ITokenStoreService tokenService, IAntiforgery antiforgeryService)
+        public AuthController(IUserService userService, IConfiguration configuration, IAntiForgeryCookieService antiforgery,ITokenStoreService tokenService, IAntiforgery antiforgeryService, RoleManager<Role> roleManager)
         {
             this.antiforgery = antiforgeryService;
             this._tokenService = tokenService; 
             this._configuration = configuration;
             this._userService = userService;
             this._antiforgery = antiforgery;
-            
-        }
+            this.roleManager = roleManager;
 
+        }
+        [NonAction]
         private string GenerateJwtToken(string email, User user, List<Claim> claims)
         {
             //var claims = new List<Claim>
@@ -112,11 +114,35 @@ namespace ManagementService.Web.Controllers
         }
         [HttpPost]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<HttpResult> editprofile([FromBody]Model.ViewModel.editprofile editprofile)
+        public async Task<HttpResult> editprofile([FromBody]Model.ViewModel.UserProfile.editprofileModel editprofile)
         {
-            // await antiforgery.ValidateRequestAsync(HttpContext);
+            bool temp = await _userService.EditProfile(editprofile);
+           
+            if (temp)
+            {
+                var appUser = _userService.FindByUserId(new Guid(editprofile.UserId));
+                var roles = await _userService.GetUserRoles(appUser);
+                return new HttpResult() { Success = true, Data = new UserViewMolel()
+                            {
+                            
+                                Email = appUser.Email,
+                                Roles = roles.ToList(),
+                                ImageLink = appUser.ImageLink,
+                                OrgId = appUser.OrgId,
+                             
+                                UserId = appUser.Id,
+                                NationalCode = appUser.NationalCode,
+                                Firstname = appUser.Firstname,
+                                LastName = appUser.LastName,
+                                UserName = appUser.UserName,
+                                PhoneNumber=appUser.PhoneNumber,
+                              //GenerateJwtToken(user.username, appUser,claims.Claims.ToList())
+                            },  Message = "با موفقیت انجام شد" };
+            }
+            else {
+                return new HttpResult() { Success = false, Data = new object(), Message = "مشکل در انجام عملیات" };
+            }
             
-            return null;
         }
         [HttpGet]
         public async Task<Model.ViewModel.editprofile> GetUserId(string userid)
@@ -126,10 +152,10 @@ namespace ManagementService.Web.Controllers
             Model.ViewModel.editprofile temp = new Model.ViewModel.editprofile();
             temp.UserId = id.Id;
             temp.Firstname = id.Firstname;
-            temp.LastName = id.Firstname;
-            temp.NationalCode ="";
+            temp.LastName = id.LastName;
+            temp.NationalCode =id.NationalCode;
             temp.PhoneNumber = id.PhoneNumber;
-            temp.MobileNumber = "";
+            temp.MobileNumber = id.MobileNumber;
             temp.Email = id.Email;
             return temp;
         }
@@ -137,7 +163,7 @@ namespace ManagementService.Web.Controllers
 
 
 
-
+        [HttpPost]
         public async Task<IActionResult> logout()
         {
             try
@@ -228,6 +254,85 @@ namespace ManagementService.Web.Controllers
                     Message = "مشکلی در انجام عملیات وجود دارد"
                 });
             }
+        }
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<HttpResult> CreateRole([FromBody]string Name)
+        {
+            try {
+                var FindByRoleName = await roleManager.FindByNameAsync(Name.Trim());
+                if (FindByRoleName!=null)
+                {
+                    return new HttpResult()
+                    {
+                        Success = false,
+                        Message = "این نقش قبلا ایجاد شده است"
+                    };
+                }
+                else { 
+                        var role = new Role() { Id = Guid.NewGuid(), Name = Name };
+                        var res = await roleManager.CreateAsync(role);
+                        return new HttpResult()
+                        {
+                            Success = true,
+                            Message = "با موفقیت ایجاد شد"
+                        };
+                }
+            }
+            catch(Exception e)
+            {
+                return new HttpResult()
+                {
+                    Success = false,
+                    Message = "مشکلی در انجام عملیات وجود دارد"
+                };
+            }
+
+        }
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<HttpResult> EditRole([FromBody]RolesViewModel role)
+        {
+            try
+            {
+                var FindByRoleId = await roleManager.FindByIdAsync(role.RoleId);
+                var FindByRoleName = await roleManager.FindByNameAsync(role.Name.Trim());
+                if (FindByRoleName!=null)
+                {
+                    return new HttpResult()
+                    {
+                        Success = false,
+                        Message = "این نقش قبلا ایجاد شده است"
+                    };
+                }
+                if (String.IsNullOrWhiteSpace(FindByRoleId.ToString())||String.IsNullOrWhiteSpace(role.RoleId) || String.IsNullOrWhiteSpace(role.Name))
+                {
+                    return new HttpResult()
+                    {
+                        Success = false,
+                        Message = "این نقش وجود ندارد یا نام وارد نشده است "
+                    };
+                }
+                else
+                {
+                    FindByRoleId.Name = role.Name;
+                    var res = await roleManager.UpdateAsync(FindByRoleId);
+                    return new HttpResult()
+                    {
+                        Success = true,
+                        Message = "با موفقیت ایجاد شد"
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                return new HttpResult()
+                {
+                    Success = false,
+                    Message = "مشکلی در انجام عملیات وجود دارد"
+                };
+            }
+
         }
     }
 }
