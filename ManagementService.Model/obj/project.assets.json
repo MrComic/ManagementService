@@ -4135,15 +4135,12 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "G:\\ngseed\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj",
+      "projectUniqueName": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj",
       "projectName": "ManagementService.Model",
-      "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj",
+      "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj",
       "packagesPath": "C:\\Users\\farahani.m.IRANPL\\.nuget\\packages\\",
-      "outputPath": "G:\\ngseed\\ManagementService\\ManagementService.Model\\obj\\",
+      "outputPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

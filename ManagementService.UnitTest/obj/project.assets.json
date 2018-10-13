@@ -14899,11 +14899,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\ngseed\\ManagementService\\ManagementService.UnitTest\\ManagementService.UnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.UnitTest\\ManagementService.UnitTest.csproj",
       "projectName": "ManagementService.UnitTest",
-      "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.UnitTest\\ManagementService.UnitTest.csproj",
+      "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.UnitTest\\ManagementService.UnitTest.csproj",
       "packagesPath": "C:\\Users\\farahani.m.IRANPL\\.nuget\\packages\\",
-      "outputPath": "G:\\ngseed\\ManagementService\\ManagementService.UnitTest\\obj\\",
+      "outputPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.UnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -14922,11 +14922,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "G:\\ngseed\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj": {
-              "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj"
+            "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj": {
+              "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj"
             },
-            "G:\\ngseed\\ManagementService\\ManagementService.Web\\ManagementService.Web.csproj": {
-              "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Web\\ManagementService.Web.csproj"
+            "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Web\\ManagementService.Web.csproj": {
+              "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Web\\ManagementService.Web.csproj"
             }
           }
         }

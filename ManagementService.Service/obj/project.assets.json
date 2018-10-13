@@ -4879,11 +4879,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\ngseed\\ManagementService\\ManagementService.Service\\ManagementService.Service.csproj",
+      "projectUniqueName": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Service\\ManagementService.Service.csproj",
       "projectName": "ManagementService.Service",
-      "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Service\\ManagementService.Service.csproj",
+      "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Service\\ManagementService.Service.csproj",
       "packagesPath": "C:\\Users\\farahani.m.IRANPL\\.nuget\\packages\\",
-      "outputPath": "G:\\ngseed\\ManagementService\\ManagementService.Service\\obj\\",
+      "outputPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4902,11 +4902,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "G:\\ngseed\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj": {
-              "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj"
+            "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj": {
+              "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj"
             },
-            "G:\\ngseed\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj": {
-              "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj"
+            "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj": {
+              "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj"
             }
           }
         }
