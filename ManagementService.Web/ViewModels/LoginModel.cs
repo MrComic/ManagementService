@@ -13,4 +13,5 @@ namespace ManagementService.Web.ViewModels
 
         public bool RememberMe { get; set; }
     }
+   
 }
