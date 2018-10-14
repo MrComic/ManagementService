@@ -21,7 +21,7 @@ After Cloning This project you will need to to run Npm install in ui folder of M
 After that You will need to Change the ConnectionString in DatabaseContext class in ManagementService.Data Project 
 In the end open Package Manager Console in visual studio and Run the 'update-database' Command to Create The database in your Server.
 be sure to select ManagementService.Data in Package Manager Console unless update-database command won't work.
-
+<p><b>Make sure to check nlog config in Web project to config logger environment and log store</b></p>
 </b>
 this repo is under active development and we will try our best to improve this repo every day.</b>
 feel free to submit an issue and we will answer as soon as possible.
