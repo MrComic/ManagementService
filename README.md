@@ -28,4 +28,12 @@ feel free to submit an issue and we will answer as soon as possible.
 
 <h2>Changes</h2>
 
-<ul><li>2018-10-14: All DirtyMigrations on Managementservice.Data has beed removed and base data for easy setup has beed added to context and some code cleanup on UI folder  </li></ul>
+<ul>
+  <li>2018-10-14:
+  <ul>
+    <li>All DirtyMigrations on Managementservice.Data has beed removed</li>
+    <li>Setting base data for easy setup in database context - administrator user will be added to database by update-database</li>
+    <li>Some code cleanup on UI (Angular folder) </li>
+  </ul>
+  </li>
+</ul>
