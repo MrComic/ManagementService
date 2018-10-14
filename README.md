@@ -26,3 +26,6 @@ be sure to select ManagementService.Data in Package Manager Console unless updat
 this repo is under active development and we will try our best to improve this repo every day.</b>
 feel free to submit an issue and we will answer as soon as possible.
 
+<h2>Changes</h2>
+
+<ul><li>2018-10-14: All DirtyMigrations on Managementservice.Data has beed removed and base data for easy setup has beed added to context and some code cleanup on UI folder  </li></ul>
