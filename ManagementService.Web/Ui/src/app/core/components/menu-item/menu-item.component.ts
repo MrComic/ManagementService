@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {MenuRoutes} from "../../../Models/MenuRoutes";
-import {initMenu} from "../../../SharedServices/InitMenu";
+import {initMenu} from "../../../shared/SharedServices/InitMenu";
 
 @Component({
   selector: 'app-menu-item',

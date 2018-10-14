@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {InitUi} from "../../SharedServices/InitJquery";
+import {InitUi} from "../../shared/SharedServices/InitJquery";
 
 @Component({
   selector: 'app-not-found',

@@ -1,6 +1,6 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {HeaderModule} from '../header/header.module';
+import {HeaderModule} from '../MainModule/header/header.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {RouterModule} from "@angular/router";
 import {RouterModuleModule} from "../router-module/router-module.module";

@@ -88,7 +88,7 @@ export class AuthService {
   logout(navigateToHome: boolean): void {
     const headers = new HttpHeaders({ "Content-Type": "application/json" });
      this.http
-      .get(`${this.appConfig.apiEndpoint}/${this.apiConfigService.configuration.LogoutPath}`,
+      .post(`${this.appConfig.apiEndpoint}/${this.apiConfigService.configuration.LogoutPath}`,
         { headers: headers })
       .pipe(
         map(response => response || {}),

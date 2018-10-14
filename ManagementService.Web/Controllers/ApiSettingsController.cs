@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using ManagementService.Model.DbSets.User;
 using ManagementService.Service;
 using ManagementService.Service.OrgServices;
 using ManagementService.Web.ViewModels;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -49,7 +51,7 @@ namespace ManagementService.Web.Controllers
         {
           // _logger.LogError("Error Log");
            // throw new Exception("error");
-            // await userService.RegisterTestUser();
+            //await userService.RegisterTestUser();
             string xsrfToken = "";
             string accessToken = "";
             if (User.Identity.IsAuthenticated)

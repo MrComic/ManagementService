@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {InitJquery} from "../../SharedServices/InitJquery";
+import {InitJquery} from "../../shared/SharedServices/InitJquery";
 import {BreadCrumbModel} from '../../core/Models/BreadCrumbModel';
 
 @Component({

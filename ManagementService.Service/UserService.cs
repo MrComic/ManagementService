@@ -74,7 +74,9 @@ namespace ManagementService.Service
                 var deleteuser = await userManager.FindByNameAsync("administrator");
                 if (deleteuser != null)
                 {
-                    var resDelete = await userManager.DeleteAsync(deleteuser);
+                    PasswordHasher<User> hasher = new PasswordHasher<User>();
+                   string hashedPassword = hasher.HashPassword(deleteuser, "PPpp@123456");
+                   // var resDelete = await userManager.DeleteAsync(deleteuser);
 
                 }
                 var role = new Role() { Id = Guid.NewGuid(), Name = "Administrators" };

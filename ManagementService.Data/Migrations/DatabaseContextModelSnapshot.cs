@@ -38,6 +38,13 @@ namespace ManagementService.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Menus");
+
+                    b.HasData(
+                        new { Id = 1L, IsVisible = true, MenuIconName = "fa fa-home", Name = "خانه", ParentId = -1L, Route = "" },
+                        new { Id = 2L, IsVisible = true, MenuIconName = "fa fa-users", Name = "کاربران", ParentId = -1L, Route = "/" },
+                        new { Id = 3L, IsVisible = true, MenuIconName = "fa fa-clipboard", Name = "مدیریت نقش ها", ParentId = -1L, Route = "/role/createrole" },
+                        new { Id = 4L, IsVisible = true, MenuIconName = "fa fa-user", Name = "لیست کاربران", ParentId = 2L, Route = "/users/list" }
+                    );
                 });
 
             modelBuilder.Entity("ManagementService.Model.DbSets.Menu.MenuAccess", b =>
@@ -51,6 +58,13 @@ namespace ManagementService.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("MenuAccess");
+
+                    b.HasData(
+                        new { MenuId = 1L, RoleId = new Guid("0f614c0f-5363-4753-9803-40339bb62034") },
+                        new { MenuId = 2L, RoleId = new Guid("0f614c0f-5363-4753-9803-40339bb62034") },
+                        new { MenuId = 3L, RoleId = new Guid("0f614c0f-5363-4753-9803-40339bb62034") },
+                        new { MenuId = 4L, RoleId = new Guid("0f614c0f-5363-4753-9803-40339bb62034") }
+                    );
                 });
 
             modelBuilder.Entity("ManagementService.Model.DbSets.Orgs.Orgs", b =>
@@ -66,6 +80,10 @@ namespace ManagementService.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Orgs");
+
+                    b.HasData(
+                        new { Id = 1L, Name = "شهر سیستم", ParentId = -1L }
+                    );
                 });
 
             modelBuilder.Entity("ManagementService.Model.DbSets.Roles.Role", b =>
@@ -90,6 +108,10 @@ namespace ManagementService.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new { Id = new Guid("0f614c0f-5363-4753-9803-40339bb62034"), ConcurrencyStamp = "6bb79589-7667-4a12-914b-210a9a4063e5", Name = "Administrators" }
+                    );
                 });
 
             modelBuilder.Entity("ManagementService.Model.DbSets.Roles.RoleClaim", b =>
@@ -156,6 +178,10 @@ namespace ManagementService.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("UsersInRoles");
+
+                    b.HasData(
+                        new { UserId = new Guid("5a879b0e-f49a-484c-b09e-0a82c6f4bbbe"), RoleId = new Guid("0f614c0f-5363-4753-9803-40339bb62034"), OrgId = 0L }
+                    );
                 });
 
             modelBuilder.Entity("ManagementService.Model.DbSets.Roles.UserToken", b =>
@@ -236,6 +262,10 @@ namespace ManagementService.Data.Migrations
                     b.HasIndex("OrgId");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new { Id = new Guid("5a879b0e-f49a-484c-b09e-0a82c6f4bbbe"), AccessFailedCount = 0, ConcurrencyStamp = "e0c1d177-b7bf-41fa-8fa2-9afafd52244b", Email = "info@Admin.com", EmailConfirmed = true, Firstname = "مدیر", ImageLink = "Admin.png", LastName = "مدیری", LockoutEnabled = false, MobileNumber = "00000000000", NationalCode = "0000000000", NormalizedUserName = "ADMINISTRATOR", OrgId = 1L, PasswordHash = "AQAAAAEAACcQAAAAEKd8p8c6+ACBwvJR8YxDzm8sP32rhAzJuB5UIiB5qQC2v6FD4hf5FXBO1ee8FXAcRg==", PhoneNumberConfirmed = false, SecurityStamp = "DHHZ5M7Y634ZRUL4UH6EG44NLXAB4NJK", TwoFactorEnabled = false, UserName = "administrator" }
+                    );
                 });
 
             modelBuilder.Entity("ManagementService.Model.DbSets.Menu.MenuAccess", b =>

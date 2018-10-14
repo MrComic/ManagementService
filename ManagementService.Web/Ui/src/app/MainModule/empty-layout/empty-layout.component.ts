@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {InitJquery} from "../../SharedServices/InitJquery";
+import {InitJquery} from "../../shared/SharedServices/InitJquery";
 
 @Component({
   selector: 'app-empty-layout',

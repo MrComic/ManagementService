@@ -4698,11 +4698,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj",
+      "projectUniqueName": "G:\\ngseed\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj",
       "projectName": "ManagementService.Data",
-      "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj",
+      "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Data\\ManagementService.Data.csproj",
       "packagesPath": "C:\\Users\\farahani.m.IRANPL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Data\\obj\\",
+      "outputPath": "G:\\ngseed\\ManagementService\\ManagementService.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4721,8 +4721,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj": {
-              "projectPath": "C:\\Users\\farahani.m.IRANPL\\Documents\\GitHub\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj"
+            "G:\\ngseed\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj": {
+              "projectPath": "G:\\ngseed\\ManagementService\\ManagementService.Model\\ManagementService.Model.csproj"
             }
           }
         }
