@@ -31,7 +31,7 @@ feel free to submit an issue and we will answer as soon as possible.
 <ul>
   <li>2018-10-14:
   <ul>
-    <li>All DirtyMigrations on Managementservice.Data has beed removed</li>
+    <li>All DirtyMigrations on Managementservice.Data has been removed</li>
     <li>Setting base data for easy setup in database context - administrator user will be added to database by update-database</li>
     <li>Some code cleanup on UI (Angular folder) </li>
   </ul>
